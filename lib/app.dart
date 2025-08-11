@@ -1,7 +1,6 @@
 import 'package:color_button_app/src/common/localization/generated/app_localizations.dart';
 import 'package:color_button_app/src/feature/color/widget/color_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 
 class ColorApp extends StatefulWidget {
   const ColorApp({super.key});
@@ -17,13 +16,8 @@ class _ColorAppState extends State<ColorApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      localizationsDelegates: const [
-        AppLocalizations.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: [Locale('en'), Locale('uk')],
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
       home: Navigator(
         key: _navigatorKey,
         onGenerateRoute: (RouteSettings settings) {

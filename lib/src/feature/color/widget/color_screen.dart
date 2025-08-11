@@ -22,22 +22,23 @@ class _ColorScreenState extends State<ColorScreen> {
   Widget build(BuildContext context) {
     final AppLocalizations localizations = AppLocalizations.of(context)!;
     return Scaffold(
-      backgroundColor: _color,
-      body: InkWell(
-        onTap: _updateColor,
-        child: AnimatedContainer(
-          duration: const Duration(milliseconds: 500),
-          height: double.infinity,
-          width: double.infinity,
-          child: Center(
-            child: Text(
-              localizations.heyThere,
-              style: TextStyle(
-                color: _color.computeLuminance() > 0.5
-                    ? Colors.black
-                    : Colors.white,
-                fontSize: 24,
-                fontWeight: FontWeight.w400,
+      body: AnimatedContainer(
+        duration: const Duration(milliseconds: 500),
+        decoration: BoxDecoration(color: _color),
+        child: Material(
+          color: Colors.transparent,
+          child: InkWell(
+            onTap: _updateColor,
+            child: Center(
+              child: Text(
+                localizations.heyThere,
+                style: TextStyle(
+                  color: _color.computeLuminance() > 0.5
+                      ? Colors.black
+                      : Colors.white,
+                  fontSize: 24,
+                  fontWeight: FontWeight.w400,
+                ),
               ),
             ),
           ),
